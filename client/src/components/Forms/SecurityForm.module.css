@@ -1,0 +1,36 @@
+.securityform input {
+  padding: 0.7rem;
+  border-radius: 0.25rem;
+  width: 80%;
+  color: black;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+.securityform{
+    width: 55vw;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+}
+.securityform input:focus {
+  border: 1px solid #0066ff;
+  background: #0066ff0d;
+}
+input::placeholder {
+  color: gray;
+}
+.security {
+  height: 80vh;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 1rem;
+  background: #fff;
+}

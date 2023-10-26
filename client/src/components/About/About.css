@@ -1,0 +1,25 @@
+#about{
+    height: calc(100vh - 5rem);
+    width: 100vw;
+}
+.about-container {
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../assets/aboutbackground.jpg');
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    background-attachment: fixed;
+    color: #60efff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.Title {
+    background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(340, 73%, 75%, 1) 50%, hsla(263, 58%, 45%, 1) 100%);
+    font-size: 4rem;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}

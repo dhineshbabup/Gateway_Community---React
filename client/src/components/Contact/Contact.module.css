@@ -1,0 +1,76 @@
+#contactPage {
+  height: calc(100vh - 5rem);
+  width: 75vw;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 2rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* display: flex;
+    flex: wrap column; */
+}
+.contactTitle {
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-weight: 800;
+}
+.conatctDec {
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 01px;
+}
+.contactForm {
+  margin: 0 auto;
+  padding: 2rem 0;
+  margin: 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 60rem;
+}
+.contactForm input,
+textarea {
+  font-size: medium;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0.5rem ;
+  padding: 0.5rem 1rem;
+  color: black;
+  border: 1px solid rgb(133, 129, 129);
+  border-radius: 0.25rem;
+  background: #dee2e6;
+  outline: none;
+}
+.contactForm input:focus,
+textarea:focus {
+  background: #0066ff0d;
+  border: 1px solid #0066ff;
+  
+}
+.invalid {
+  background: #fbdada;
+}
+input,
+input::placeholder {
+  color: #000;
+}
+.submitBtn {
+  margin-top: 2rem;
+  outline: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(60, 60, 60, 0.142);
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+}
+.links img {
+  object-fit: cover;
+  height: 3rem;
+  cursor: pointer;
+  width: 3rem;
+  margin: 2rem 0.75rem;
+}

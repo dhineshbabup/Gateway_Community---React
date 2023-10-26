@@ -1,0 +1,101 @@
+html {
+  scroll-behavior: smooth;
+}
+#intro {
+  height: calc(100vh - 4rem);
+  width: 100vw;
+  margin: 0 auto;
+  position: relative;
+  background-image: url("../../assets/Intro.avif");
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  background-attachment: fixed;
+}
+.apartment {
+    position: absolute;
+    top: -4rem;
+    right: 0;
+    z-index: -1;
+    object-fit: cover;
+    height: 100vh;
+}
+
+.introcontent {
+    height: calc(100vh - 4rem);
+    width: 100vw;
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.434);
+}
+.hello {
+    margin-top: 1rem;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+}
+.hello span {
+    color:#0066ff
+}
+.content {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+.innercontent {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 2rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.register {
+  cursor: pointer;
+  margin-top: 2rem;
+  outline: none;
+  border-radius: 1rem;
+  font-weight: 600;
+  background: #0066ff;
+  padding: 0.75rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.register:hover {
+  background: #fff;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.pattern {
+  position: absolute;
+  object-fit: cover;
+  height: 30vh;
+  bottom: -5rem;
+  left: -15rem;
+  z-index: -1;
+}
+.posTop {
+  position: fixed;
+  bottom: 2rem;
+  padding: 1rem 2rem;
+  right: 1rem;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: none;
+  background: #0066ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.upArrow {
+  height: 2vh;
+  width: 2vh;
+}

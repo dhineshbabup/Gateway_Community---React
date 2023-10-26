@@ -1,0 +1,10 @@
+
+.light {
+    background: #e5e4e2;
+    color: black;
+    position: relative;
+}
+.dark {
+    background: black;
+    color: white;
+}

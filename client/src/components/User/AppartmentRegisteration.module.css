@@ -1,0 +1,51 @@
+.appartment {
+  width: 100vw;
+  height: calc(100vh - 4rem);
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.52);
+  position: absolute;
+  z-index: 5;
+  top:0;
+  font-size: 1rem;
+}
+.heading span {
+    color: #0066ff
+}
+.form {
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70vw;
+  height: 80vh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+}
+.control {
+  /* margin: 1rem 0; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+}
+.control label {
+    padding: 0.5rem 0;
+}
+.control input {
+  padding: 0.7rem;
+  border-radius: 0.25rem;
+  color: black;
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+.control input:focus {
+  border: 1px solid #0066ff;
+  background: #0066ff0d;
+}
