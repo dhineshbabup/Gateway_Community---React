@@ -25,22 +25,53 @@
   padding: 15px; 
   text-align: left;
 }
-
-
 .styled-table tbody tr:hover {
   background-color: #f2f2f2;
   transform: scale(1.02); 
   transition: transform 0.2s ease-in-out;
 }
-
-
 .styled-table th, .styled-table td {
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-
 .styled-table tbody tr:first-child {
   font-weight: bold;
   background-color: #f0f0f0;
+}
+.btn {
+  margin-right: 1rem;
+  border: none;
+  width: 50%;
+  border-radius: 0.25rem;
+}
+.edit-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-btn{
+  border-radius: 12px;
+  width: 220px;
+  position: relative;
+  margin-top: 25px ;
+  left: 600px;
+}
+.styled-table tbody tr td, .styled-table th {
+  text-align: center;
+}
+.email-sender {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+  flex-direction: column;
+  margin-top: 50px;
+}
+.email-sender input {
+  width: 400px;
+}
+.sendbtn {
+  background: #0066ff;
+  border-radius: 12px;
+
 }

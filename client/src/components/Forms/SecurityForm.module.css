@@ -34,3 +34,14 @@ input::placeholder {
   border-radius: 1rem;
   background: #fff;
 }
+.securityform hr {
+  width: 220px;
+  height: 4px;
+  margin-top: -2px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #000000;
+}
+.securityform h1 span{
+  color: #0066ff;
+}

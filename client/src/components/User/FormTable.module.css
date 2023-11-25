@@ -1,17 +1,21 @@
 .add-container{
-    position: absolute;
-    background-color: rgb(0,0,0,0.2);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+     /* height: calc(100vh - 4rem); */
+  height: 100vh;
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.738);
   }
   .add-container form{
+    
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: -100px;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     /* height: 500px; */
@@ -41,4 +45,23 @@
     justify-content: center;
     align-items: center;
   
+  }
+  input {
+    padding: 0.7rem;
+    border-radius: 0.25rem;
+    color: black;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+  }
+   input:focus {
+    border: 1px solid #0066ff;
+    background: #0066ff0d;
+  }
+  input::placeholder {
+    color: #000;
+  }
+  .btn {
+    width: 100%;
+    border-radius: 0;
+    border: none;
   }

@@ -11,23 +11,44 @@ const SignUp = (props) => {
   const [enteredPassword, setEnteredPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const [age, setAge] = useState();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    age: "",
+    gender: "",
+    mobilenumber: "",
+    flatno: "",
+  });
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+    if(enteredPassword === confirmPassword) {
+      setFormData((prev) => {
+        return {
+          ...prev,
+          password: enteredPassword
+        };
+      });
+
+    }
+  };
   const notifySuccess = () => toast.success("Sucessfully Registerd");
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    console.log("form submited");
-    const password =
+
+    const data =
       enteredPassword === confirmPassword
-        ? enteredPassword
-        : alert("incoreectPassword");
-    const name = enteredName;
-    const email = enteredEmail;
-    Axios.post("http://localhost:8000/createUser", { name, email, password, age })
-      .then((res) => {
-        if(res.data === 'data submitted') {
-          notifySuccess();
-        }
-      })
-      .catch((err) => console.log(err));
+        ?
+    await Axios.post("http://localhost:8000/createUser",formData) : alert('incorrect password');
+    if(data.data.success) {
+      notifySuccess()
+
+    }
   };
 
   return (
@@ -40,23 +61,22 @@ const SignUp = (props) => {
             <input
               type="text"
               placeholder="YourName"
-              value={enteredName}
-              onChange={(e) => setEnteredName(e.target.value)}
+              onChange={handleChange}
+              name="name"
             />
           </div>
           <div className={classes.control}>
             <input
               type="email"
               placeholder="Email"
-              value={enteredEmail}
-              onChange={(e) => setEnteredEmail(e.target.value)}
+              onChange={handleChange}
+              name="email"
             />
           </div>
           <div className={classes.control}>
             <input
               type="password"
               placeholder="Enter Password"
-              value={enteredPassword}
               onChange={(e) => setEnteredPassword(e.target.value)}
             />
           </div>
@@ -64,7 +84,6 @@ const SignUp = (props) => {
             <input
               type="password"
               placeholder="Re-Enter Password"
-              value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
@@ -72,19 +91,34 @@ const SignUp = (props) => {
             <input
               type="number"
               placeholder="Age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              onChange={handleChange}
+              name="age"
+            />
+          </div>
+          <div className={classes.control}>
+            <input
+              type="text"
+              placeholder="Gender"
+              onChange={handleChange}
+              name="gender"
+            />
+          </div>
+          <div className={classes.control}>
+            <input
+              type="number"
+              placeholder="Mobile Number"
+              name="mobilenumber"
+              onChange={handleChange}
             />
           </div>
           
           <Button
             className={classes.signinBtn}
             type="submit"
-            // onClick={props.actionHandler}
           >
             SignUp
           </Button>
-          <span className={classes.break} onClick={props.actionHandler}>Already have an Account</span>
+          <span className={classes.break} onClick={props.actionHandler}>Already have an Account?</span>
         </form>
       </div>
       <ToastContainer />

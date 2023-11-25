@@ -10,6 +10,7 @@ html {
   background-position: center;
   background-size: cover;
   object-fit: cover;
+  z-index: -1;
   background-attachment: fixed;
 }
 .apartment {

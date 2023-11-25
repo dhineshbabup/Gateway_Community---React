@@ -1,16 +1,17 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useState } from "react";
 import Button from "../UI/Button/Button";
 import classes from "./Login.module.css";
 import Axios from "axios";
 import SignUp from "./SignUp";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
 import close from "../../assets/x.png"
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [action, setAction] = useState("LogIn");
-  const [res, setRes] = useState(false);
+
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [emailIsValid, setEmailIsValid] = useState();
@@ -21,73 +22,40 @@ const Login = (props) => {
   const notifyError = () => toast.error("Login Faild");
   const notifyFieldEmpty = () => toast.error('Field cannot be empty');
 
-  // useEffect(() => {
-  //   Axios.get("http://localhost:8000/getUsers").then(user => {
-  //     console.log(user.data)
-  //     return user.data
-  //   }).then(data => {
-  //     const [val,obj] = searchEmail(data,enteredEmail);
-  //     const result = val && (searchPassword(data,enteredPassword)) ? true : false;
-  //     if(result) {
-  //       notifySuccess()
-  //     }
-  //     else {
-  //       notifyError()
-  //     }
-  //   })
-  // },[enteredEmail, enteredPassword])
-  const [login, setLogin] = useState(false)
   const navigate = useNavigate()
-  const submitHandler = async (event) => {
 
-    event.preventDefault();
-     await Axios.get("http://localhost:8000/getUsers")
-      .then(async (user) => {
-        console.log(user.data.data);
-        const [val,name,obj] =  searchEmail(user.data.data, enteredEmail)
-        const result =
-           val &&
-          ( searchPassword(user.data.data, enteredPassword))
-            ? true
-            : false;
-        console.log(result);
-        if (result) {
-          notifySuccess();
-          localStorage.setItem('user',name)
-          setLogin(true)
-          console.log(obj + "1")
-          if(obj.isAdmin){
 
-            localStorage.setItem('admin',obj.isAdmin)
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const data = await Axios.post("http://localhost:8000/login",{enteredEmail, enteredPassword})
+    // const length = Object.keys(data.data).length;
+    const length = data.data.data.length
+    if(length > 0) {
+    const d = data.data.data
+    if(d[0].password === enteredPassword) {
+      notifySuccess();
+      localStorage.setItem('user',d[0].name)
+          if(d[0].isAdmin){
+            localStorage.setItem('admin',"admin")
           }
           else {
-            localStorage.setItem('admin',false)
+            localStorage.setItem('admin',"notAdmin")
+          }
+          if(d[0].isSecurity){
+            localStorage.setItem('security',"security")
+          }
+          else {
+            localStorage.setItem('security',"notSecurity")
           }
           navigate("/")
-
-          setRes(true)
-        } else {
-          notifyError();
-          setRes(false)
-        }
-      })
-      .catch((err) => console.log(err));
-
-  };
-  function searchEmail(obj, targetValue) {
-    for (let i = 0; i < obj.length; i++) {
-      if (obj[i].email === targetValue) {
-        return [true, obj[i].name,obj[i]];
-        // return [true,obj[i]];
-      }
+    }
+    else {
+      notifyError()
     }
   }
-  function searchPassword(obj, targetValue) {
-    for (let i = 0; i < obj.length; i++) {
-      if (obj[i].password === targetValue) {
-        return true;
-      }
-    }
+  else {
+    notifyError()
+  }
   }
   const emailChangeHandler = (e) => {
     setEnteredEmail(e.target.value);
@@ -110,12 +78,11 @@ const Login = (props) => {
     }
   };
   
-  console.log(res)
   return (
-    <section id={classes.login} style={{ display: res ? "none" : "" }}>
+    <section id={classes.login}>
       {action === "LogIn" ? (
         <div className={`${classes.container} ${classes.login}`}>
-          <img src={close} className={classes.close} onClick={props.loginPageHandler}/>
+          <img src={close} className={classes.close} onClick={() => navigate("/")}/>
           <p className={classes.welcome}>Welcome Back cheaf!!</p>
           <h1 className={classes.heading}>{action}</h1>
           <form className={classes.loginForm} onSubmit={submitHandler}>
@@ -156,7 +123,7 @@ const Login = (props) => {
               >
                 LogIn
               </Button>
-              <span className={classes.break} onClick={actionHandler}>Create Your Account</span>
+              <Link to='/signup'><span className={classes.break} onClick={actionHandler}>Create Your Account</span></Link>
              
           </form>
         </div>

@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Sun from "../../assets/sun1.png";
 import Moon from "../../assets/moon.png";
 import menu from "../../assets/menu.png";
+import { FaHome } from "react-icons/fa";
+
 import Button from "../UI/Button/Button";
 function Navbar({ mode, changeMode, loginPageHandler }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -13,7 +15,6 @@ function Navbar({ mode, changeMode, loginPageHandler }) {
   const signOut = () => {
     localStorage.removeItem('user')
   }
-  console.log(user)
   return (
     <nav className="navbar">
       <img src={logo} alt="" className="logo" />
@@ -22,16 +23,16 @@ function Navbar({ mode, changeMode, loginPageHandler }) {
         <Link to='/user' className="navItem">Users</Link>
         <Link to='/contact' className="navItem">Contact Us</Link>
         <Link to='/' className="navItem">About</Link>
-        
-        <img
+
+        {/* <img
           src={mode ? Moon : Sun}
           onClick={changeMode}
           className="mode"
           alt=""
-        />
+        /> */}
       </div>
       {user ?
-      <Button onClick={signOut}>{user}</Button> :
+      <Link className="profile-card" to='/profile'>{user}</Link> :
       <Button onClick={() => navigate('/login')}>LogIn</Button>
       }
       <img

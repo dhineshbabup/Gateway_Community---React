@@ -16,12 +16,23 @@ const formSchema = new schema(
       required: true,
     },
     age: {
-      type: Number,
+      type: String,
       required: true,
+    },
+    mobilenumber: {
+      type: String,
+      required: true,
+    },
+    gender: {
+      type: String,
+      required: true,
+    },
+    flatno: {
+      type: String,
     },
   },
   {
-    collection: "users",
+    collection: "login",
   }
 );
 

@@ -4,7 +4,10 @@ const schemaData = mongoose.Schema(
   {
    name: String,
    email: String,
-   age: String
+   age: String,
+   gender: String,
+   flatno: String,
+   mobilenumber: String
   }
 );
 

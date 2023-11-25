@@ -10,8 +10,11 @@ export const AuthContextProvider = ({children}) => {
     const setLoginPageHandler = () => {
         setShowLoginPage(!showLoginPage)
       }
+      const contextValue  = {
+        showLoginPage, setLoginPageHandler,
+      }
     return (
-        <AuthContext.Provider value={{showLoginPage: showLoginPage, setLoginPageHandler:setLoginPageHandler}}>
+        <AuthContext.Provider value={contextValue}>
             {children}
         </AuthContext.Provider>
     )

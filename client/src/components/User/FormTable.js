@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdClose } from 'react-icons/md'
 import classes from "./FormTable.module.css"
+import Button from "../UI/Button/Button"
 const FormTable = ({handleChange,handleSubmit,handleClose,rest}) => {
   return (
     <div className={classes['add-container']}>
@@ -27,11 +28,32 @@ const FormTable = ({handleChange,handleSubmit,handleClose,rest}) => {
         type="number"
         name="age"
         placeholder="Age"
-        value={rest.mobile}
+        value={rest.age}
         onChange={handleChange}
       />
-
-      <button className={classes.btn}>submit</button>
+      <input
+        type="number"
+        name="flatno"
+        placeholder="Flat Number"
+        value={rest.flatno}
+        onChange={handleChange}
+      />
+      <input
+        type="number"
+        name="mobilenumber"
+        placeholder="Mobile Number"
+        value={rest.mobilenumber}
+        onChange={handleChange}
+      />
+      
+      <input
+        type="text"
+        name="gender"
+        placeholder="Gender"
+        value={rest.gender}
+        onChange={handleChange}
+      />
+      <Button type={'submit'} className={classes.btn}>Submit</Button>
     </form>
   </div>
   )
